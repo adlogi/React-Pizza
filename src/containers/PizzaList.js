@@ -15,7 +15,12 @@ class PizzaList extends Component {
         </thead>
         <tbody>
           {
-            //render Pizza here
+            this.props.pizzaList.map(pizza => {
+              return (
+                <Pizza pizza={pizza} handleEdit={this.props.handleEdit} key={pizza.id} />
+                
+              );
+            })
           }
         </tbody>
       </table>
@@ -25,3 +30,14 @@ class PizzaList extends Component {
 }
 
 export default PizzaList;
+
+
+/*
+
+<tr key={pizza.id}>
+                  <td>{pizza.topping}</td>
+                  <td>{pizza.size}</td>
+                  <td>{pizza.vegetarian ? 'Yes' : 'No'}</td>
+                  <td><button onClick={() => this.props.handleEdit(pizza.id)} id={pizza.id}>Edit Pizza</button></td>
+                </tr>
+/*/
